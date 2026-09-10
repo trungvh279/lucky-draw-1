@@ -488,11 +488,7 @@ export default function LuckyDraw1({
     }).filter(r => r.winners.length > 0);
 
     const renderRounds = (keyPrefix: string) => {
-      let count = 0;
       return groupedRounds.map((r) => {
-        const startIdx = count;
-        count += r.winners.length;
-
         return (
           <div key={`${keyPrefix}-${r.round}`} className="w-full" style={{ marginBottom: '1.5625vw' }}>
             <div className="flex items-center justify-center" style={{ margin: '0.625vw 0' }}>
@@ -514,8 +510,6 @@ export default function LuckyDraw1({
             <div
               style={{
                 display: 'grid',
-                gridAutoFlow: 'column',
-                gridTemplateRows: `repeat(${Math.ceil(r.winners.length / 4)}, 2.5390625vw)`,
                 gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
                 columnGap: '1.09375vw',
                 rowGap: '0.703125vw',
@@ -523,7 +517,6 @@ export default function LuckyDraw1({
               }}
             >
               {r.winners.map((w, idx) => {
-                const globalIdx = startIdx + idx + 1;
                 return (
                   <div
                     key={`${keyPrefix}-${w.participant.id}-${idx}`}
@@ -542,23 +535,6 @@ export default function LuckyDraw1({
                     }}
                   >
                     <div
-                      className="absolute flex items-center justify-center pointer-events-none select-none"
-                      style={{
-                        left: '0.546875vw',
-                        top: 0,
-                        bottom: 0,
-                        color: '#f0d060',
-                        fontSize: '0.625vw',
-                        fontFamily: "'MBCorpoATitleCondOfcVI', sans-serif",
-                        fontWeight: 800,
-                        letterSpacing: '0.02em',
-                        opacity: 0.95,
-                      }}
-                    >
-                      #{globalIdx}
-                    </div>
-
-                    <div
                       className="w-full text-center truncate z-10 select-none"
                       style={{
                         fontFamily: "'MBCorpoATitleCondOfcVI', sans-serif",
@@ -569,7 +545,7 @@ export default function LuckyDraw1({
                         textAlign: 'center',
                         lineHeight: '1.2',
                         whiteSpace: 'nowrap',
-                        padding: '0 1.875vw',
+                        padding: '0 0.39vw',
                       }}
                     >
                       <span>
@@ -1113,8 +1089,6 @@ export default function LuckyDraw1({
           <div
             style={{
               display: 'grid',
-              gridAutoFlow: 'column',
-              gridTemplateRows: 'repeat(5, 2.5390625vw)',
               gridTemplateColumns: 'repeat(4, 21.9921875vw)',
               columnGap: '1.7578125vw',
               rowGap: '0.9765625vw',

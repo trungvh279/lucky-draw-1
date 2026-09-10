@@ -13,11 +13,10 @@ export const GIFT_INVENTORY: GiftItem[] = [
   { name: 'Backpack', quantity: 5 },
   { name: 'Powerbank', quantity: 7 },
   { name: '140Y Bottle', quantity: 52 },
-  { name: 'Canvas', quantity: 7 },
-  { name: 'T-shirt', quantity: 24 },
+  { name: 'Canvas', quantity: 5 },
+  { name: 'T-shirt', quantity: 21 },
   { name: 'Bag', quantity: 11 },
   { name: 'Car Model', quantity: 30 },
-  { name: 'Pin set', quantity: 1 },
 ];
 
 export const TOTAL_GIFTS_STOCK = GIFT_INVENTORY.reduce((sum, g) => sum + g.quantity, 0);
@@ -29,10 +28,10 @@ export const ROUND_CONFIGS = [
   { round: 4, count: 20, label: 'ĐỢT 4' },
   { round: 5, count: 20, label: 'ĐỢT 5' },
   { round: 6, count: 20, label: 'ĐỢT 6' },
-  { round: 7, count: 17, label: 'ĐỢT 7' },
+  { round: 7, count: 11, label: 'ĐỢT 7' },
 ];
 
-export const TOTAL_LD1_WINNERS = 137;
+export const TOTAL_LD1_WINNERS = 131;
 
 export const PRIZE_CONFIGS = [
   {
